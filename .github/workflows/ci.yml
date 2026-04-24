@@ -34,7 +34,7 @@ jobs:
             ${{ runner.os }}-nuget-
 
       - name: Checkstyle
-        run: dotnet format --verify-no-changes ooaip_space_server2026.sln
+        run: dotnet format --verify-no-changes OOAnD.sln
 
       - name: Restore dependencies
         working-directory: ${{ env.DIR }}
