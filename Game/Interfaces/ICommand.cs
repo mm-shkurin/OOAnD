@@ -1,7 +1,6 @@
-namespace Game.Interfaces
-{   
-    public interface ICommand
-    {
-        void Execute();
-    }
+namespace Game.Interfaces;
+
+public interface ICommand
+{
+    void Execute();
 }
