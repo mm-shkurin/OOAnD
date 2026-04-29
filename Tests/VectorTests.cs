@@ -1,9 +1,16 @@
-﻿using Game.Models;
+﻿using Xunit;
+using Game.Models;
 
 namespace Tests;
 
 public class VectorTests
 {
+    [Fact]
+    public void Create_VectorWithNoCoordinates_ThrowsArgumentException()
+    {
+        Assert.Throws<ArgumentException>(() => new Vector());
+    }
+
     [Fact]
     public void Add_VectorsWithOppositeCoordinates_ReturnsZeroVector()
     {
