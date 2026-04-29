@@ -38,7 +38,7 @@ namespace Game.Models
             return false;
         }
 
-        public static bool operator ==(Vector left, Vector right)
+        public static bool operator ==(Vector? left, Vector? right)
         {
             if (left is null) return right is null;
             return left.Equals(right);

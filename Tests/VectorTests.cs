@@ -67,6 +67,40 @@ public class VectorTests
     }
 
     [Fact]
+    public void Equals_SameVector_ReturnsTrue()
+    {
+        var v1 = new Vector(1, 2, 3);
+
+        Assert.True(v1.Equals(v1));
+    }
+
+    [Fact]
+    public void OperatorEquals_SameVector_ReturnsTrue()
+    {
+        var v1 = new Vector(1, 2, 3);
+
+        Assert.True(v1 == v1);
+    }
+    
+    [Fact]
+    public void OperatorEqual_CompareNull_ReturnsTrue()
+    {
+        Vector? v1 = null;
+        Vector? v2 = null;
+
+        Assert.True(v1 == v2);
+    }
+
+    [Fact]
+    public void OperatorEqual_CompareNullAndVector_ReturnsFalse()
+    {
+        Vector v1 = new Vector(1, 2, 3);
+        Vector? v2 = null;
+
+        Assert.True(v1 == v2);
+    }
+
+    [Fact]
     public void OperatorNotEqual_CoordinatesDiffer_ReturnsTrue()
     {
         var v1 = new Vector(1, 2, 3);
