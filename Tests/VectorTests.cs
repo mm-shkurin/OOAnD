@@ -1,4 +1,6 @@
-﻿namespace Tests;
+﻿using Game.Models;
+
+namespace Tests;
 
 public class VectorTests
 {
