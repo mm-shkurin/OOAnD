@@ -81,7 +81,7 @@ public class VectorTests
 
         Assert.True(v1 == v1);
     }
-    
+
     [Fact]
     public void OperatorEqual_CompareNull_ReturnsTrue()
     {
