@@ -97,7 +97,7 @@ public class VectorTests
         Vector v1 = new Vector(1, 2, 3);
         Vector? v2 = null;
 
-        Assert.True(v1 == v2);
+        Assert.False(v1 == v2);
     }
 
     [Fact]
