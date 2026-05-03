@@ -4,7 +4,7 @@ using Game.Interfaces;
 
 namespace Game.IoC;
 
-public class RegisterIoCDependencyMoveCommand : App.ICommand
+public class RegisterIoCDependencyRotateCommand : App.ICommand
 {
     public void Execute()
     {
