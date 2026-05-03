@@ -60,6 +60,7 @@ public class RotateCommandTests
     public void RotateCommand_OrientationCannotBeSet_ThrowsException()
     {
         var mockRotatable = new Mock<IRotatable>();
+        mockRotatable.SetupGet(x => x.Orientation).Returns(new Angle(0));
         mockRotatable.SetupGet(x => x.AngularSpeed).Returns(new Angle(1));
         mockRotatable.SetupSet(x => x.Orientation = It.IsAny<Angle>()).Throws<InvalidOperationException>();
 
