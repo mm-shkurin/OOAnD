@@ -28,7 +28,7 @@ public class MacroCommandTests
         var cmd2 = new Mock<ICommand>();
         var cmd3 = new Mock<ICommand>();
 
-        cmd2.Setup(c => c.Execute()).Throws(new Exception("fail"));
+        cmd2.Setup(c => c.Execute()).Throws(new Exception());
 
         var macro = new MacroCommand(new[] { cmd1.Object, cmd2.Object, cmd3.Object });
 
@@ -37,5 +37,18 @@ public class MacroCommandTests
         cmd1.Verify(c => c.Execute(), Times.Once);
         cmd2.Verify(c => c.Execute(), Times.Once);
         cmd3.Verify(c => c.Execute(), Times.Never);
+    }
+
+    [Fact]
+    public void MacroCommand_EmptyArray_DoesNothing()
+    {
+        var macro = new MacroCommand(Array.Empty<ICommand>());
+        macro.Execute();
+    }
+
+    [Fact]
+    public void MacroCommand_NullCommands_Throws()
+    {
+        Assert.Throws<ArgumentNullException>(() => new MacroCommand(null));
     }
 }
