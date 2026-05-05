@@ -18,6 +18,9 @@ public class MacroCommand : ICommand
 
     private void ExecuteRecursive(int index)
     {
+        if (_commands.Length == 0)
+            return;
+
         if (index >= _commands.Length)
             return;
 
