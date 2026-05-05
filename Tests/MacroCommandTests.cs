@@ -1,7 +1,7 @@
 using Xunit;
 using Moq;
 using Game.Commands;
-using Game.Interfaces;
+using App;
 
 namespace Tests;
 
