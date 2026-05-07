@@ -18,7 +18,7 @@ public class RotateCommandTests
         mockRotatable.SetupGet(x => x.Orientation).Returns(originalOrientation);
         mockRotatable.SetupGet(x => x.AngularSpeed).Returns(angularSpeed);
 
-        Angle newOrientation = null;
+        Angle? newOrientation = null;
 
         mockRotatable.SetupSet(x => x.Orientation = It.IsAny<Angle>())
                       .Callback<Angle>(a => newOrientation = a);
