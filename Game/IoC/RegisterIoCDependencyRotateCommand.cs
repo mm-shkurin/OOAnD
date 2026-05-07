@@ -14,7 +14,7 @@ public class RegisterIoCDependencyRotateCommand : ICommand
             (object[] args) =>
             {
                 var gameObject = args[0];
-                
+
                 var adapter = Ioc.Resolve<IRotatable>("Adapters.IRotatable", gameObject);
 
                 return new RotateCommand(adapter);
