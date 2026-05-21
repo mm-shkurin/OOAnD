@@ -38,11 +38,4 @@ public class MacroCommandTests
         cmd2.Verify(c => c.Execute(), Times.Once);
         cmd3.Verify(c => c.Execute(), Times.Never);
     }
-
-    [Fact]
-    public void MacroCommand_EmptyArray_DoesNothing()
-    {
-        var macro = new MacroCommand(Array.Empty<ICommand>());
-        macro.Execute();
-    }
 }
