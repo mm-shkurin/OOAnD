@@ -8,7 +8,7 @@ namespace Tests;
 public class MacroCommandTests
 {
     [Fact]
-    public void MacroCommand_Executes_All_Commands()
+    public void Exectute_MacroCommand_ExecutesAllCommands()
     {
         var cmd1 = new Mock<ICommand>();
         var cmd2 = new Mock<ICommand>();
@@ -22,7 +22,7 @@ public class MacroCommandTests
     }
 
     [Fact]
-    public void MacroCommand_Stops_On_Exception()
+    public void Execute_MacroCommand_StopsOnException()
     {
         var cmd1 = new Mock<ICommand>();
         var cmd2 = new Mock<ICommand>();
