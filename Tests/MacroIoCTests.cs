@@ -22,13 +22,15 @@ public class MacroIoCTests
     {
         var cmd1Mock = new Mock<ICommand>();
         var cmd2Mock = new Mock<ICommand>();
+        var commands = new ICommand[] {cmd1Mock.Object, cmd2Mock.Object};
+
+        var registerCommand = new RegisterIoCDependencyMacroCommand();
+        registerCommand.Execute();
 
         var macro = Ioc.Resolve<ICommand>(
             "Commands.Macro",
-            cmd1Mock.Object,
-            cmd2Mock.Object
+            new object[] {commands}
         );
-
         macro.Execute();
 
         Assert.IsType<MacroCommand>(macro);
