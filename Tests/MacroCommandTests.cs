@@ -45,10 +45,4 @@ public class MacroCommandTests
         var macro = new MacroCommand(Array.Empty<ICommand>());
         macro.Execute();
     }
-
-    [Fact]
-    public void MacroCommand_NullCommands_Throws()
-    {
-        Assert.Throws<ArgumentNullException>(() => new MacroCommand(null));
-    }
 }

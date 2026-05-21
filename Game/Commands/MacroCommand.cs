@@ -2,30 +2,10 @@ using App;
 
 namespace Game.Commands;
 
-public class MacroCommand : ICommand
+public class MacroCommand(ICommand[] commands) : ICommand
 {
-    private readonly ICommand[] _commands;
-
-    public MacroCommand(ICommand[] commands)
-    {
-        _commands = commands ?? throw new ArgumentNullException(nameof(commands));
-    }
-
     public void Execute()
     {
-        ExecuteRecursive(0);
-    }
-
-    private void ExecuteRecursive(int index)
-    {
-        if (_commands.Length == 0)
-            return;
-
-        if (index >= _commands.Length)
-            return;
-
-        _commands[index].Execute();
-
-        ExecuteRecursive(index + 1);
+        commands.ToList().ForEach(c => c.Execute());
     }
 }
