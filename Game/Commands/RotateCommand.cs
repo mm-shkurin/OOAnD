@@ -1,5 +1,5 @@
-using App;
 using Game.Interfaces;
+using App;
 
 namespace Game.Commands;
 
