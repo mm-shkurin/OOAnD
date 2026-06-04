@@ -9,7 +9,7 @@ public class RegisterIoCDependencyActionsStop : ICommand
     public void Execute()
     {
         Ioc.Resolve<ICommand>("IoC.Register", "Actions.StopCommand",
-            (object[] args) => new StopCommand((ICommandInjectable) args[0])).Execute();
+            (object[] args) => new StopCommand((ICommandInjectable)args[0])).Execute();
 
         Ioc.Resolve<ICommand>("IoC.Register", "Actions.Stop", new Func<object[], object>((args) =>
         {
