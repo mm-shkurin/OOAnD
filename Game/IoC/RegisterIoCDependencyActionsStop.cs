@@ -5,21 +5,21 @@ using Game.Interfaces;
 namespace Game.IoC;
 
 public class RegisterIoCDependencyActionsStop : ICommand
+{
+    public void Execute()
     {
-        public void Execute()
+        Ioc.Resolve<ICommand>("IoC.Register", "Actions.StopCommand",
+            (object[] args) => new StopCommand((ICommandInjectable) args[0])).Execute();
+
+        Ioc.Resolve<ICommand>("IoC.Register", "Actions.Stop", new Func<object[], object>((args) =>
         {
-            Ioc.Resolve<ICommand>("IoC.Register", "Actions.StopCommand",
-                (object[] args) => new StopCommand((ICommandInjectable) args[0])).Execute();
+            var order = (IDictionary<string, object>)args[0];
 
-            Ioc.Resolve<ICommand>("IoC.Register", "Actions.Stop", new Func<object[], object>((args) =>
-            {
-                var order = (IDictionary<string, object>)args[0];
+            var injectable = (ICommandInjectable)order["Injectable"];
 
-                var injectable = (ICommandInjectable)order["Injectable"];
+            var stopCommand = Ioc.Resolve<ICommand>("Actions.StopCommand", injectable);
 
-                var stopCommand = Ioc.Resolve<ICommand>("Actions.StopCommand", injectable);
-
-                return stopCommand;
-            })).Execute();
-        }
+            return stopCommand;
+        })).Execute();
     }
+}
